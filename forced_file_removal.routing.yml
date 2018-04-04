@@ -1,0 +1,7 @@
+forced_file_removal.delete:
+  path: '/admin/content/files/{fid}/delete'
+  defaults:
+    _form: '\Drupal\forced_file_removal\Form\DeleteFile'
+    _title: 'Delete File'
+  requirements:
+    _permission: 'access files overview'

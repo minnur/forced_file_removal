@@ -1,0 +1,7 @@
+name: Forced File Removal
+type: module
+description: Remove files even when a file is in use. For emergency use only.
+core: 8.x
+dependencies:
+  - file
+  - views

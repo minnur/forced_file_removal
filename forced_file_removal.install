@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function forced_file_removal_schema() {
+  $schema['file_removal_history'] = [
+    'description' => 'File removal history.',
+    'fields' => [
+      'id' => [
+        'description' => 'Record ID',
+        'type'        => 'serial',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+      ],
+      'fid' => [
+        'description' => 'File ID',
+        'type'        => 'int',
+        'length'      => 15,
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+        'default'     => 0,
+      ],
+      'file_uri' => [
+        'description' => 'File Uri',
+        'type'        => 'varchar',
+        'length'      => 255,
+        'not null'    => TRUE,
+        'default'     => '',
+      ],
+      'uid' => [
+        'description' => 'User ID',
+        'type'        => 'int',
+        'length'      => 15,
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+        'default'     => 0,
+      ],
+      'username' => [
+        'description' => 'Username who deleted the file',
+        'type'        => 'varchar',
+        'length'      => 255,
+        'not null'    => TRUE,
+        'default'     => '',
+      ],
+      'deleted_at' => [
+        'description' => 'Deleted timestamp.',
+        'type'        => 'int',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+        'default'     => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'fid' => ['fid'],
+      'uid' => ['uid'],
+    ],
+  ];
+  return $schema;
+}
